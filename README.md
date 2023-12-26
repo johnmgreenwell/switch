@@ -8,7 +8,7 @@ This HAL-mediated custom switch driver permits ease of use portable across many 
 
 ## Usage
 
-The switch header and source rely on an external user-defined hardware abstraction layer (HAL) called `hal.h` in which defines the necessary calls in the `HAL` namespace. Namely, a GPIO pin object which can be read as necessary.
+The switch header and source rely on an external user-defined hardware abstraction layer (HAL) called `hal.h` which defines the necessary calls in the `HAL` namespace. Namely, a GPIO pin object with a `digitalRead()` method.
 
 ```cpp
 #include <switch.h>
@@ -16,7 +16,7 @@ The switch header and source rely on an external user-defined hardware abstracti
 ...
 
 // Instantiate switch
-PeripheralIO::Switch    button(PIN_A7);
+PeripheralIO::Switch button(PIN_A7);
 
 ...
 
