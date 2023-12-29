@@ -3,9 +3,9 @@
 // Purpose     : Switch Driver Class
 // Description : This source file accompanies header file switch.h.
 // Language    : C++
-// Platform    : Flexible
-// Framework   : Flexible
-// Copyright   : MIT License 2023, John Greenwell
+// Platform    : Portable
+// Framework   : Portable
+// Copyright   : MIT License 2024, John Greenwell
 //--------------------------------------------------------------------------------------------------------------------
 
 #include "switch.h"

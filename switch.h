@@ -2,12 +2,12 @@
 // Name        : switch.h
 // Purpose     : Switch Driver Class
 // Description : 
-//               This class intended for control of generic switch.
+//               This class intended for control of a generic switch.
 //
 // Language    : C++
-// Platform    : Flexible
-// Framework   : Flexible
-// Copyright   : MIT License 2023, John Greenwell
+// Platform    : Portable
+// Framework   : Portable
+// Copyright   : MIT License 2024, John Greenwell
 // Requires    : External : N/A
 //               Custom   : hal.h - Custom implementation-defined Hardware Abstraction Layer
 //--------------------------------------------------------------------------------------------------------------------
