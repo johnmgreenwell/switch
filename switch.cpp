@@ -39,12 +39,12 @@ Switch::Switch(uint8_t pin, bool press_logic, uint16_t debounce_ms,
         _counter_max = _release_timeout_ms / _update_interval_ms;
     }
 
-    _pin.pinMode(INPUT);
+    _pin.pinMode(GPIO_INPUT);
 }
 
 void Switch::init()
 {
-    _pin.pinMode(INPUT);
+    _pin.pinMode(GPIO_INPUT);
 }
 
 bool Switch::pressed()

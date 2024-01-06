@@ -4,11 +4,11 @@ Generic, portable, multi-instance switch driver.
 
 ## Overview
 
-This HAL-mediated custom switch driver permits ease of use portable across many platforms. Debouncing is handled internally provided that the object is polled at a user-defined interval.
+This HAL-mediated custom switch driver permits ease of use which is portable across many platforms. Debouncing is handled internally provided that the object is polled at a user-defined interval.
 
 ## Usage
 
-The switch header and source rely on an external user-defined hardware abstraction layer (HAL) called `hal.h` which defines the necessary calls in the `HAL` namespace. Namely, a GPIO pin object with a `digitalRead()` method.
+The switch header and source rely on an external user-defined hardware abstraction layer (HAL) called `hal.h` which defines the necessary calls in the `HAL` namespace. Namely, a GPIO pin object with `pinMode()` and `digitalRead()` methods. The `pinMode()` method should set the GPIO pin to input when given a value `GPIO_INPUT`.
 
 To properly detect switch presses and releases, the `poll()` method must be called at an interval declared at the object's instantiation (5ms if none specified). This may be accomplished simply with a timer callback.
 
