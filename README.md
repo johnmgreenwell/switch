@@ -14,6 +14,8 @@ To properly detect switch presses and releases, the `poll()` method must be call
 
 Once triggered by a switch event, the methods `pressed()` and/or `released()` will return true until reset by the `clearState()` method.
 
+### Example
+
 ```cpp
 #include <switch.h>
 
@@ -55,4 +57,4 @@ someTimerISR()
 
 ## License
 
-MIT © 2023 John Greenwell
+MIT © 2024 John Greenwell
