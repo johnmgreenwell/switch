@@ -1,7 +1,7 @@
 //--------------------------------------------------------------------------------------------------------------------
 // Name        : switch.cpp
 // Purpose     : Switch Driver Class
-// Description : This source file accompanies header file switch.h.
+// Description : This source file implements header file switch.h.
 // Language    : C++
 // Platform    : Portable
 // Framework   : Portable
@@ -16,7 +16,7 @@ namespace PeripheralIO
 Switch::Switch(uint8_t pin, bool press_logic, uint16_t debounce_ms, 
                     uint16_t update_interval_ms, uint16_t release_timeout_ms)
 : _pin(pin)
-, _press_logic(press_logic)
+, _press_logic(press_logic & 0x01)
 , _timeout_enabled(false)
 , _is_held(false)
 , _is_pressed(false)
@@ -42,17 +42,17 @@ Switch::Switch(uint8_t pin, bool press_logic, uint16_t debounce_ms,
     _pin.pinMode(GPIO_INPUT);
 }
 
-void Switch::init()
+void Switch::init() const
 {
     _pin.pinMode(GPIO_INPUT);
 }
 
-bool Switch::pressed()
+bool Switch::pressed() const
 {
     return _is_pressed;
 }
 
-bool Switch::released()
+bool Switch::released() const
 {
     return _is_released;
 }
@@ -63,9 +63,14 @@ void Switch::clearState()
     _is_released = false;
 }
 
+bool Switch::getState() const
+{
+    return !((_pin.digitalRead() & 0x01) ^ _press_logic);
+}
+
 void Switch::poll()
 {
-    if (_pin.digitalRead() == _press_logic)
+    if (getState())
     {
         ++_count;
 

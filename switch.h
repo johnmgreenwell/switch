@@ -2,7 +2,7 @@
 // Name        : switch.h
 // Purpose     : Switch Driver Class
 // Description : 
-//               This class intended for control of a generic switch.
+//               This class intended for control of generic switch.
 //
 // Language    : C++
 // Platform    : Portable
@@ -36,19 +36,19 @@ class Switch
         /**
          * @brief Initialize switch; should not be necessary if constructor init of pin is reliable
         */
-        void init();
+        void init() const;
 
         /**
-         * @brief Check whether switch has been pressed; requires clear_state() to reset
+         * @brief Check whether switch has been pressed; requires clearState() to reset
          * @return True if button has been pressed, false otherwise
         */
-        bool pressed();
+        bool pressed() const;
 
         /**
-         * @brief Check whether switch has been released; requires clear_state() to reset
+         * @brief Check whether switch has been released; requires clearState() to reset
          * @return True if button has been released at interval shorter than timeout, false otherwise
         */
-        bool released();
+        bool released() const;
 
         /**
          * @brief Clear state of switch, returning to unpressed/unreleased status
@@ -56,7 +56,14 @@ class Switch
         void clearState();
 
         /**
-         * @brief Poll the state of the switch at fixed intervals update_interval_ms
+         * @brief Get the current raw logical press state of the button
+         * @return True for a logic level matching press_logic, false otherwise
+        */
+        bool getState() const;
+
+        /**
+         * @brief Poll the state of the switch at fixed intervals update_interval_ms; facilitates switch
+         *        debouncing and press/release detection.
         */
         void poll();
 
