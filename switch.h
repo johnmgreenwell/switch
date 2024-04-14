@@ -56,7 +56,7 @@ class Switch
         void clearState();
 
         /**
-         * @brief Get the current raw logical press state of the button
+         * @brief Get the current raw, non-debounced logical press state of the button
          * @return True for a logic level matching press_logic, false otherwise
         */
         bool getState() const;

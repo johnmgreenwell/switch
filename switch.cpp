@@ -28,8 +28,17 @@ Switch::Switch(uint8_t pin, bool press_logic, uint16_t debounce_ms,
 , _counter_max(0)
 , _count(0)
 {
+    // No divide by zero
     if (0 == _update_interval_ms)
+    {
         _update_interval_ms = 1;
+    }
+
+    // Debounce time may not be less than update interval
+    if (_debounce_ms < _update_interval_ms)
+    {
+        _debounce_ms = _update_interval_ms;
+    }
 
     _counter_min = _debounce_ms / _update_interval_ms;
 
@@ -68,6 +77,7 @@ bool Switch::getState() const
     return !((_pin.digitalRead() & 0x01) ^ _press_logic);
 }
 
+// Miniature state machine; find press/hold, measure hold, reset
 void Switch::poll()
 {
     if (getState())
