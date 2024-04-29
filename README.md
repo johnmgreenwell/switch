@@ -17,7 +17,7 @@ Once triggered by a switch event, the methods `pressed()` and/or `released()` wi
 ### Example
 
 ```cpp
-#include <switch.h>
+#include "switch.h"
 
 ...
 
