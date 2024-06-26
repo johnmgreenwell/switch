@@ -4,7 +4,7 @@ Generic, portable, multi-instance switch driver.
 
 ## Overview
 
-This HAL-mediated custom switch driver permits ease of use which is portable across many platforms. Debouncing is handled internally provided that the object is polled at a user-defined interval.
+This HAL-mediated custom switch driver permits ease of use that is designed to be platform-independent. Debouncing is handled internally provided that the object is polled at a user-defined interval.
 
 ## Usage
 
